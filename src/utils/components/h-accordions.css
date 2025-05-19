@@ -1,0 +1,22 @@
+.home_h-accordion_mask {
+  opacity: 0;
+  transition:
+    transform 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  transition-delay: 0.5s;
+  transform: translateY(2rem);
+}
+
+.home_h-accordion_horizontal-component.active .home_h-accordion_mask {
+  opacity: 1;
+
+  transform: translateY(0rem);
+}
+
+.home_h-accordion_horizontal-component:hover .home_h-accordion_background-layer-inactive {
+  opacity: 0;
+}
+
+.home_h-accordion_horizontal-component.active .home_h-accordion_background-layer-inactive {
+  opacity: 0;
+}
