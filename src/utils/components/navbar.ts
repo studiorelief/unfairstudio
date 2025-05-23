@@ -3,7 +3,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const initNavbarScrollAnimation = () => {
+export function initNavbarScrollAnimation() {
   const navbar = document.querySelector('.navbar_component');
   const navbarLogo = document.querySelector('.navbar_logo-link');
   const navbarMenu = document.querySelector('.navbar_menu');
@@ -33,4 +33,71 @@ export const initNavbarScrollAnimation = () => {
   handleScroll();
 
   window.addEventListener('scroll', handleScroll);
-};
+
+  // Menu toggle functionality
+  const menuButton = document.querySelector('.navbar_menu-button');
+  const menuWrapper = document.querySelector('.navbar_menu-w');
+  const menuLayer = document.querySelector('.navbar_menu-layer');
+  const menu = document.querySelector('.navbar_menu');
+
+  if (!menuButton || !menuWrapper || !menuLayer || !menu) return;
+
+  let isMenuOpen = false;
+
+  const closeMenu = () => {
+    isMenuOpen = false;
+    menuButton.classList.add('is-open');
+    menuButton.classList.remove('is-close');
+
+    gsap.to(menu, {
+      y: '2rem',
+      opacity: 0,
+      duration: 0.4,
+    });
+
+    gsap.to(menuLayer, {
+      opacity: 0,
+      duration: 0.3,
+    });
+
+    setTimeout(() => {
+      (menuWrapper as HTMLElement).style.display = 'none';
+    }, 400);
+  };
+
+  const openMenu = () => {
+    isMenuOpen = true;
+    menuButton.classList.add('is-close');
+    menuButton.classList.remove('is-open');
+    (menuWrapper as HTMLElement).style.display = 'flex';
+
+    gsap.fromTo(
+      menu,
+      {
+        y: '2rem',
+        opacity: 0,
+      },
+      {
+        y: '0rem',
+        opacity: 1,
+        duration: 0.4,
+        ease: 'power2.out',
+      }
+    );
+
+    gsap.to(menuLayer, {
+      opacity: 1,
+      duration: 0.3,
+    });
+  };
+
+  menuButton.addEventListener('click', () => {
+    if (isMenuOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  menuLayer.addEventListener('click', closeMenu);
+}

@@ -9,7 +9,7 @@ export function clockAnimation() {
   });
   gsap.to('.home_clock_animation-image', {
     scrollTrigger: {
-      markers: true,
+      markers: false,
       trigger: '.section_home_clock',
       start: '0% 100%',
       end: '100% 0%',

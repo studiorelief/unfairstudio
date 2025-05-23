@@ -1,0 +1,46 @@
+/* elements transition */
+
+.button-ellipse {
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.3s ease-out;
+}
+
+.button-text {
+  transition: transform 0.3s ease-out;
+}
+
+.button-arrow {
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.1s ease-out;
+}
+
+/* button primary (navbar) */
+
+[data-wf--cc---global-button--mode-button---variables='is-primary']:hover .button-ellipse {
+  opacity: 0.5;
+  transform: translateY(5%);
+}
+
+/* button secondary */
+
+[data-wf--cc---global-button--mode-button---variables='is-secondary'] .button-text {
+  transition: scale 0.6s ease-out;
+}
+
+[data-wf--cc---global-button--mode-button---variables='is-secondary']:hover .button-text {
+  scale: 0.9;
+}
+
+/* button tertiary (icon) */
+
+[data-wf--cc---global-button--mode-button---variables='is-tertiary']:hover .button-text {
+  transform: translateX(-0.5rem);
+}
+
+[data-wf--cc---global-button--mode-button---variables='is-tertiary']:hover .button-arrow {
+  opacity: 1;
+  transform: translateX(calc(1.25rem));
+  transition: 0.3s ease-out;
+}
