@@ -91,13 +91,20 @@ export function initNavbarScrollAnimation() {
     });
   };
 
-  menuButton.addEventListener('click', () => {
-    if (isMenuOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
-  });
+  if (window.innerWidth < 990) {
+    menuButton.addEventListener('click', () => {
+      if (isMenuOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    const menuLinks = document.querySelectorAll('.navbar_link');
+    menuLinks.forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
 
   menuLayer.addEventListener('click', closeMenu);
 }

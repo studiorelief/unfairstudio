@@ -14,6 +14,7 @@ import { marqueeAnimation } from '$utils/animations/marquee';
 import { gsapTransition } from '$utils/animations/pageTransition';
 import { initFloatingLogosAnimation } from '$utils/animations/scrollTools';
 import { fearBackgroundAnimation } from '$utils/animations/sunRising';
+import { swiperCrossfade } from '$utils/animations/swiperTools';
 import { initSwitchBrandAnimation } from '$utils/animations/switchBrand';
 import { teamAnimation } from '$utils/animations/teamAnimation';
 import { autoTabs } from '$utils/components/autoTabs';
@@ -37,6 +38,7 @@ const initGlobalAnimations = () => {
 
   /* tools */
   initMarker();
+  swiperCrossfade();
 };
 
 initGlobalAnimations();
@@ -52,7 +54,7 @@ barba.init({
       leave(data: { current: { container: HTMLElement } }) {
         //  gsapTransitionOut();
         return gsap.to(data.current.container, {
-          x: '25vw',
+          y: '-25vw',
           opacity: 0,
           duration: 0.5,
           ease: 'power1.out',
@@ -65,9 +67,17 @@ barba.init({
         data.next.container.style.position = 'relative';
       },
       after(data: { next: { container: HTMLElement } }) {
-        // await gsapTransitionV2Out();
+        // Fade in animation for hero sun wrapper
+        gsap.from('.hero_sun-wrapper, hero_background', {
+          opacity: 0,
+          duration: 1,
+          delay: 1.75,
+          ease: 'power2.out',
+        });
+
+        // Original container animation
         return gsap.from(data.next.container, {
-          x: '-25vw',
+          y: '25vw',
           opacity: 0,
           duration: 0.5,
           delay: 1.25,
@@ -136,8 +146,9 @@ barba.hooks.beforeLeave((data: { current: { container: HTMLElement } }) => {
   // ScrollTrigger.clearMatchMedia();
 
   // Remove switch_brand_trigger attribute from trigger-mode elements
-  document.querySelectorAll('.trigger-mode').forEach((element) => {
+  document.querySelectorAll('.trigger-mode, .navbar_component').forEach((element) => {
     element.removeAttribute('switch_brand_trigger');
+    element.removeAttribute('switch_color_trigger');
   });
 
   restartWebflow();
@@ -159,8 +170,9 @@ barba.hooks.beforeEnter(() => {
   });
 
   // Remove switch_brand_trigger attribute from trigger-mode elements
-  document.querySelectorAll('.trigger-mode').forEach((element) => {
+  document.querySelectorAll('.trigger-mode, .navbar_component').forEach((element) => {
     element.setAttribute('switch_brand_trigger', '');
+    element.setAttribute('switch_color_trigger', '');
   });
 
   // Reset videos
@@ -181,11 +193,8 @@ barba.hooks.afterEnter(() => {
   document.body.style.height = 'auto';
   document.documentElement.style.height = 'auto';
 
-  // Forcer le recalcul complet des ScrollTriggers
-  ScrollTrigger.refresh(true);
-
   // Créer un petit délai pour s'assurer que tout est bien rendu
-  setTimeout(() => {
-    ScrollTrigger.refresh();
-  }, 100);
+  // setTimeout(() => {
+  //   ScrollTrigger.refresh();
+  // }, 100);
 });

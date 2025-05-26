@@ -25,19 +25,19 @@ export function gsapTransition() {
     transitionWrapper,
     {
       display: 'none',
-      x: '0vw',
+      y: '0vw',
       opacity: 0,
       //   duration: 0.25,
     },
     {
       display: 'flex',
-      x: '0vw',
+      y: '0vw',
       opacity: 1,
       duration: 0.25,
       ease: 'power1.out',
     }
   ).to(transitionWrapper, {
-    x: '12.5vw',
+    y: '-12.5vw',
     opacity: 0,
     duration: 0.25,
     delay: 0.5,

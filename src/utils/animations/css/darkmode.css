@@ -1,16 +1,18 @@
-/* [switch_brand_color] {
-  transition: background-color 0.3s ease-in-out;
-} */
-
-.u-brand-whitemode .navbar_link-wrapper {
-  background-color: var(--_brand---background--secondary);
+[switch_brand_color] {
+  transition:
+    font-color 0.6s ease-in-out,
+    background-color 0.6s ease-in-out;
 }
 
-.u-brand-whitemode .home_baseline_gradient {
+/* .u-brand-whitemode .navbar_link-wrapper {
+  background-color: var(--_brand---background--secondary);
+} */
+
+/* .u-brand-whitemode .home_baseline_gradient {
   background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.7), black);
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
 .u-brand-whitemode .hero_background {
   background-color: rgba(0, 0, 0, 0.1);
@@ -38,4 +40,14 @@
 
 .solutions_blob_video-wrapper {
   mix-blend-mode: darken;
+}
+
+/* Set solutions first blob to opacity 0 */
+
+.solutions_blob_assets.is-left.is-first {
+  opacity: 0;
+}
+
+.u-brand-whitemode .navbar_menu {
+  background-color: var(--swatch--false-white);
 }
