@@ -44,7 +44,7 @@
 
 /* Set solutions first blob to opacity 0 */
 
-.solutions_blob_assets.is-left.is-first {
+.solutions_blob_assets {
   opacity: 0;
 }
 

@@ -42,7 +42,7 @@ export function initSwitchBrandAnimation() {
   });
 
   // Check if solutions blob assets exist
-  const solutionsBlobAssets = document.querySelector('.solutions_blob_assets.is-left.is-first');
+  const solutionsBlobAssets = document.querySelector('.solutions_blob_assets');
 
   if (solutionsBlobAssets) {
     ScrollTrigger.create({
