@@ -36,11 +36,11 @@
 /* button tertiary (icon) */
 
 [data-wf--cc---global-button--mode-button---variables='is-tertiary']:hover .button-text {
-  transform: translateX(-0.5rem);
+  transform: translateX(-0.25rem);
 }
 
 [data-wf--cc---global-button--mode-button---variables='is-tertiary']:hover .button-arrow {
   opacity: 1;
-  transform: translateX(calc(1.25rem));
+  transform: translateX(calc(0.25rem));
   transition: 0.3s ease-out;
 }
