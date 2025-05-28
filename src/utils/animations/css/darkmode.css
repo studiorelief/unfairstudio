@@ -48,6 +48,11 @@
   opacity: 0;
 }
 
-.u-brand-whitemode .navbar_menu {
+/* .u-brand-whitemode .navbar_menu {
   background-color: var(--swatch--false-white);
-}
+} */
+
+/* Set solutions white to solution cards */
+/* .u-brand-whitemode .solutions_blob_cards {
+  background-color: white;
+} */
