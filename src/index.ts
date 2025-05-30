@@ -12,6 +12,7 @@ import { ctaRoundLoop } from '$utils/animations/ctaRoundLoop';
 import { homeHeroSun } from '$utils/animations/homeHeroSun';
 import { marqueeAnimation } from '$utils/animations/marquee';
 import { gsapTransition } from '$utils/animations/pageTransition';
+import { parallaxCta } from '$utils/animations/parallaxCta';
 import { initFloatingLogosAnimation } from '$utils/animations/scrollTools';
 import { fearBackgroundAnimation } from '$utils/animations/sunRising';
 import { swiperCrossfade } from '$utils/animations/swiperTools';
@@ -35,6 +36,7 @@ const initGlobalAnimations = () => {
 
   /* footer */
   marqueeAnimation();
+  parallaxCta();
 
   /* tools */
   initMarker();
