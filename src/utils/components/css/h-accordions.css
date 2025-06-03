@@ -12,10 +12,14 @@
   transform: translateY(0rem);
 }
 
+.home_h-accordion_horizontal-component .home_h-accordion_background-layer-inactive {
+  opacity: 0.7;
+}
+
 .home_h-accordion_horizontal-component:hover .home_h-accordion_background-layer-inactive {
-  opacity: 0;
+  opacity: 0.25;
 }
 
 .home_h-accordion_horizontal-component.active .home_h-accordion_background-layer-inactive {
-  opacity: 0;
+  opacity: 0.5;
 }

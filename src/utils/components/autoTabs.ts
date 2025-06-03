@@ -36,7 +36,7 @@ export function autoTabs() {
     if (line) {
       setTimeout(() => {
         if (line) {
-          line.style.transition = 'width 4s linear';
+          line.style.transition = 'width 8s linear';
           line.style.width = '100%';
         }
       }, 50);
@@ -54,7 +54,7 @@ export function autoTabs() {
     clearInterval(intervalId);
     setTimeout(() => {
       changeTab();
-      intervalId = setInterval(changeTab, 4000);
+      intervalId = setInterval(changeTab, 8000);
     }, 50);
   }
 
@@ -62,6 +62,6 @@ export function autoTabs() {
     tab.addEventListener('click', () => resetAnimation(index));
   });
 
-  intervalId = setInterval(changeTab, 4000);
+  intervalId = setInterval(changeTab, 8000);
   changeTab();
 }

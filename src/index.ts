@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 import { clockAnimation } from '$utils/animations/clockAnimation';
 import { ctaRoundLoop } from '$utils/animations/ctaRoundLoop';
+import { heroTextSwitch } from '$utils/animations/heroTextSwitch';
 import { homeHeroSun } from '$utils/animations/homeHeroSun';
 import { marqueeAnimation } from '$utils/animations/marquee';
 import { gsapTransition } from '$utils/animations/pageTransition';
@@ -33,6 +34,7 @@ const initGlobalAnimations = () => {
   initNavbarScrollAnimation();
   homeHeroSun();
   ctaRoundLoop();
+  heroTextSwitch();
 
   /* footer */
   marqueeAnimation();

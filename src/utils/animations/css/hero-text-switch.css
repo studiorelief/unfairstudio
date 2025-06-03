@@ -1,0 +1,6 @@
+.hero_text-switch {
+  display: inline-block;
+  overflow: visible;
+  transition: width 0.5s ease-in-out;
+  max-height: 4rem;
+}
