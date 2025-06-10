@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 import { clockAnimation } from '$utils/animations/clockAnimation';
 import { ctaRoundLoop } from '$utils/animations/ctaRoundLoop';
 import { heroTextSwitch } from '$utils/animations/heroTextSwitch';
+import { homeCardsScroll } from '$utils/animations/homeCardsScroll';
 import { homeHeroSun } from '$utils/animations/homeHeroSun';
 import { marqueeAnimation } from '$utils/animations/marquee';
 import { gsapTransition } from '$utils/animations/pageTransition';
@@ -20,7 +21,7 @@ import { swiperCrossfade } from '$utils/animations/swiperTools';
 import { initSwitchBrandAnimation } from '$utils/animations/switchBrand';
 import { teamAnimation } from '$utils/animations/teamAnimation';
 import { autoTabs } from '$utils/components/autoTabs';
-import { initAccordion } from '$utils/components/hAccordion';
+import { /* initAccordion, */ accordionScrollTrigger } from '$utils/components/hAccordion';
 import { initNavbarScrollAnimation } from '$utils/components/navbar';
 import { loadScript } from '$utils/tools/loadScript';
 import { initMarker } from '$utils/tools/marker';
@@ -29,6 +30,7 @@ import { initMarker } from '$utils/tools/marker';
 /* 
 ! Global init - First load
 */
+
 /* navbar */
 const initGlobalAnimations = () => {
   initNavbarScrollAnimation();
@@ -71,6 +73,8 @@ barba.init({
         data.next.container.style.position = 'relative';
       },
       after(data: { next: { container: HTMLElement } }) {
+        // Animate hero background cells color change
+
         // Fade in animation for hero sun wrapper
         gsap.from('.hero_sun-wrapper, hero_background', {
           opacity: 0,
@@ -78,6 +82,19 @@ barba.init({
           delay: 1.75,
           ease: 'power2.out',
         });
+
+        gsap.fromTo(
+          '.hero_background-cell',
+          {
+            backgroundColor: 'var(--_brand---background--primary)',
+          },
+          {
+            backgroundColor: 'var(--_brand---background--secondary)',
+            duration: 3,
+            delay: 1,
+            ease: 'power2.out',
+          }
+        );
 
         // Original container animation
         return gsap.from(data.next.container, {
@@ -97,8 +114,10 @@ barba.init({
         fearBackgroundAnimation();
         initSwitchBrandAnimation();
         autoTabs();
-        initAccordion();
+        // initAccordion();
+        accordionScrollTrigger();
         clockAnimation();
+        homeCardsScroll();
       },
     },
     {

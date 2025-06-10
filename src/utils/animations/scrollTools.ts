@@ -56,9 +56,13 @@ export function initFloatingLogosAnimation() {
     // Create scroll animations with different speeds for each asset
     logoAssets.forEach((asset, index) => {
       const speed = 1 + index * 0.2; // Different speed for each asset
+      const rotationAmount = 45 + index * 45; // Different rotation for each asset
+
       gsap.set(asset, {
         y: '20rem',
+        rotateZ: 0,
       });
+
       gsap.to(asset, {
         scrollTrigger: {
           trigger: assetSection,
@@ -67,7 +71,8 @@ export function initFloatingLogosAnimation() {
           scrub: true,
           markers: false,
         },
-        y: '-20rem', // -15rem to 15rem (assuming 1rem = 16px)
+        y: '-20rem',
+        rotateZ: rotationAmount,
         ease: 'none',
         duration: speed,
       });

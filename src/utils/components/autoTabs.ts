@@ -39,7 +39,7 @@ export function autoTabs() {
           line.style.transition = 'width 8s linear';
           line.style.width = '100%';
         }
-      }, 50);
+      }, 0);
     }
   }
 
@@ -55,7 +55,7 @@ export function autoTabs() {
     setTimeout(() => {
       changeTab();
       intervalId = setInterval(changeTab, 8000);
-    }, 50);
+    }, 0);
   }
 
   tabs.forEach((tab, index) => {

@@ -10,11 +10,6 @@ export function heroTextSwitch() {
   const texts = ['competitive', 'unfair'];
   let currentIndex = 0;
 
-  // Set initial text and width
-  textElement.textContent = texts[currentIndex];
-  const initialWidth = textElement.offsetWidth;
-  textElement.style.width = `${initialWidth}px`;
-
   // Function to measure text width
   const measureTextWidth = (text: string): number => {
     const tempElement = document.createElement('span');
@@ -39,17 +34,21 @@ export function heroTextSwitch() {
     return width;
   };
 
-  const switchText = () => {
-    // Get next text and measure its width
-    const nextIndex = (currentIndex + 1) % texts.length;
-    const nextText = texts[nextIndex];
-    const nextWidth = measureTextWidth(nextText);
+  // Set initial text and calculate max width
+  textElement.textContent = texts[currentIndex];
+  const maxWidth = Math.max(...texts.map((text) => measureTextWidth(text)));
+  textElement.style.width = `${maxWidth}px`;
+  textElement.style.textAlign = 'right';
 
-    // Animation de sortie (fade out + scale) + width transition
+  const switchText = () => {
+    // Get next text
+    const nextIndex = (currentIndex + 1) % texts.length;
+
+    // Animation de sortie (fade out + scale + move left)
     gsap.to(textElement, {
       opacity: 0,
       scale: 0.8,
-      width: nextWidth,
+      x: 0,
       duration: 0.5,
       ease: 'power2.in',
       onComplete: () => {
@@ -57,16 +56,18 @@ export function heroTextSwitch() {
         currentIndex = nextIndex;
         textElement.textContent = texts[currentIndex];
 
-        // Animation d'entrée (fade in + scale)
+        // Animation d'entrée (fade in + scale + move from right)
         gsap.fromTo(
           textElement,
           {
             opacity: 0,
             scale: 1.2,
+            x: -30,
           },
           {
             opacity: 1,
             scale: 1,
+            x: 0,
             duration: 0.4,
             ease: 'power2.out',
           }
