@@ -17,7 +17,7 @@ export function initSwitchBrandAnimation() {
   ScrollTrigger.create({
     markers: false,
     trigger: '[switch_brand_trigger]',
-    start: '400 50%',
+    start: '-600 50%',
     end: '100% 0%', // Trigger when the top of the element reaches the center of the viewport
     onEnter: () => {
       switchBrandElement.forEach((element) => {
@@ -48,7 +48,7 @@ export function initSwitchBrandAnimation() {
     ScrollTrigger.create({
       markers: false,
       trigger: '[switch_brand_trigger]',
-      start: '400 50%',
+      start: '-400 50%',
       end: '100% 50%',
       onEnter: () => {
         setTimeout(() => {

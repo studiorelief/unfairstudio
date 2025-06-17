@@ -1,24 +1,3 @@
-// export function initAccordion(): void {
-//   const accordionComponents = document.querySelectorAll('.home_h-accordion_horizontal-component');
-
-//   accordionComponents.forEach((component) => {
-//     component.addEventListener('click', () => {
-//       // Remove active class from all previously active elements
-//       const activeElements = document.querySelectorAll('.active');
-//       activeElements.forEach((element) => element.classList.remove('active'));
-
-//       // Add active class to clicked component
-//       component.classList.add('active');
-
-//       // Add active class to bottom element within component
-//       const bottomElement = component.querySelector('.home_h-accordion_horizontal-bottom');
-//       if (bottomElement) {
-//         bottomElement.classList.add('active');
-//       }
-//     });
-//   });
-// }
-
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
@@ -100,7 +79,7 @@ export function accordionScrollTrigger(): void {
         let targetClass = '';
         if (self.progress >= 0.5) {
           targetClass = 'is-3';
-        } else if (self.progress >= 0.4) {
+        } else if (self.progress >= 0.3) {
           targetClass = 'is-2';
         } else if (self.progress >= 0.2) {
           targetClass = 'is-1';
@@ -143,3 +122,24 @@ export function accordionScrollTrigger(): void {
     ease: 'power2.out',
   });
 }
+
+// export function initAccordion(): void {
+//   const accordionComponents = document.querySelectorAll('.home_h-accordion_horizontal-component');
+
+//   accordionComponents.forEach((component) => {
+//     component.addEventListener('click', () => {
+//       // Remove active class from all previously active elements
+//       const activeElements = document.querySelectorAll('.active');
+//       activeElements.forEach((element) => element.classList.remove('active'));
+
+//       // Add active class to clicked component
+//       component.classList.add('active');
+
+//       // Add active class to bottom element within component
+//       const bottomElement = component.querySelector('.home_h-accordion_horizontal-bottom');
+//       if (bottomElement) {
+//         bottomElement.classList.add('active');
+//       }
+//     });
+//   });
+// }

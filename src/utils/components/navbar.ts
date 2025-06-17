@@ -7,6 +7,7 @@ export function initNavbarScrollAnimation() {
   const navbar = document.querySelector('.navbar_component');
   const navbarLogo = document.querySelector('.navbar_logo-link');
   const navbarMenu = document.querySelector('.navbar_menu');
+
   if (!navbar || !navbarLogo || !navbarMenu) return;
 
   let lastScrollTop = 0;
@@ -14,15 +15,15 @@ export function initNavbarScrollAnimation() {
     const currentScroll = window.scrollY;
 
     if (currentScroll === 0) {
-      gsap.to([navbarLogo, navbarMenu], {
+      gsap.to([navbarMenu], {
         y: '0rem',
       });
     } else if (currentScroll < lastScrollTop) {
-      gsap.to([navbarLogo, navbarMenu], {
+      gsap.to([navbarMenu], {
         y: '0rem',
       });
     } else {
-      gsap.to([navbarLogo, navbarMenu], {
+      gsap.to([navbarMenu], {
         y: '-10rem',
       });
     }

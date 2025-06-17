@@ -19,6 +19,11 @@ import { initFloatingLogosAnimation } from '$utils/animations/scrollTools';
 import { fearBackgroundAnimation } from '$utils/animations/sunRising';
 import { swiperCrossfade } from '$utils/animations/swiperTools';
 import { initSwitchBrandAnimation } from '$utils/animations/switchBrand';
+import {
+  initColorScrollHome,
+  initColorScrollSolutions,
+  initColorScrollTeam,
+} from '$utils/animations/switchBrandScroll';
 import { teamAnimation } from '$utils/animations/teamAnimation';
 import { autoTabs } from '$utils/components/autoTabs';
 import { /* initAccordion, */ accordionScrollTrigger } from '$utils/components/hAccordion';
@@ -112,17 +117,24 @@ barba.init({
       namespace: 'home',
       beforeEnter() {
         fearBackgroundAnimation();
+        /* 
+        ! @fearBackgroundAnimation create bug on first homeCardsScroll scrolltrigger animation
+        ! à checker - pass mobile
+        */
+        initColorScrollHome();
         initSwitchBrandAnimation();
+
+        homeCardsScroll();
+        clockAnimation();
+        accordionScrollTrigger();
         autoTabs();
         // initAccordion();
-        accordionScrollTrigger();
-        clockAnimation();
-        homeCardsScroll();
       },
     },
     {
       namespace: 'solutions',
       beforeEnter() {
+        initColorScrollSolutions();
         initSwitchBrandAnimation();
         initFloatingLogosAnimation();
         // playLottie();
@@ -135,7 +147,9 @@ barba.init({
     {
       namespace: 'team',
       beforeEnter() {
+        initColorScrollTeam();
         initSwitchBrandAnimation();
+
         Promise.all([
           loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-accordion@1/accordion.js'),
         ]);

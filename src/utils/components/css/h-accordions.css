@@ -1,9 +1,13 @@
+.home_h-accordion_horizontal-component {
+  transition: width 0.5s ease-out;
+}
+
 .home_h-accordion_mask {
   opacity: 0;
   transition:
     transform 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
-  transition-delay: 0.5s;
+  transition-delay: 0.3s;
   transform: translateY(2rem);
 }
 

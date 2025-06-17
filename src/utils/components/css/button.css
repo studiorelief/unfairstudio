@@ -16,6 +16,16 @@
     opacity 0.1s ease-out;
 }
 
+.button-noise-asset {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+[data-wf--cc---global-button--mode-button---variables='is-primary']:hover .button-noise-asset,
+[data-wf--cc---global-button--mode-button---variables='is-secondary']:hover .button-noise-asset {
+  opacity: 0.15;
+}
+
 /* button primary (navbar) */
 
 [data-wf--cc---global-button--mode-button---variables='is-primary']:hover .button-ellipse {
