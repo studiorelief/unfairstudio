@@ -1,0 +1,16 @@
+/* 
+! Tablet first 
+*/
+
+@media screen and (min-width: 991px) {
+  .hero_text-switch {
+    text-align: center;
+  }
+}
+
+/* 
+! Mobile first 
+*/
+
+@media screen and (max-width: 479px) {
+}
