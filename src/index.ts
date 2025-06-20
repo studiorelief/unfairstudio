@@ -116,18 +116,20 @@ barba.init({
     {
       namespace: 'home',
       beforeEnter() {
-        fearBackgroundAnimation();
-        /* 
-        ! @fearBackgroundAnimation create bug on first homeCardsScroll scrolltrigger animation
-        ! à checker - pass mobile
-        */
-        initColorScrollHome();
-        initSwitchBrandAnimation();
-        homeCardsScroll();
-        clockAnimation();
-        accordionScrollTrigger();
-        autoTabs();
-        // initAccordion();
+        if (window.innerWidth > 991) {
+          fearBackgroundAnimation();
+          /* 
+          ! @fearBackgroundAnimation create bug on first homeCardsScroll scrolltrigger animation
+          ! à checker - pass mobile
+          */
+          initColorScrollHome();
+          initSwitchBrandAnimation();
+          homeCardsScroll();
+          clockAnimation();
+          accordionScrollTrigger();
+          autoTabs();
+          // initAccordion();
+        }
       },
     },
     {

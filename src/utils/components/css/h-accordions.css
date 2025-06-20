@@ -7,7 +7,7 @@
   transition:
     transform 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
-  transition-delay: 0.3s;
+  transition-delay: 0.1s;
   transform: translateY(2rem);
 }
 
@@ -28,16 +28,22 @@
   opacity: 0.5;
 }
 
-.home_h-accordion_link {
+/* .home_h-accordion_link {
   transition: opacity 0s ease-in-out;
 }
 
 .home_h-accordion_horizontal-component.active .home_h-accordion_link {
   opacity: 0.5;
   transition: opacity 1s ease-in-out;
-}
+} */
 
 .home_tabs_content .w-tab-content {
   background-color: var(--_brand---background--primary);
   border-radius: var(--radius--large);
+}
+
+@media screen and (max-width: 991px) {
+  .home_h-accordion_mask {
+    opacity: 1;
+  }
 }
