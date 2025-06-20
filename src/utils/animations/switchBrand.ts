@@ -18,7 +18,7 @@ export function initSwitchBrandAnimation() {
     markers: false,
     trigger: '[switch_brand_trigger]',
     start: '-600 50%',
-    end: '100% 0%', // Trigger when the top of the element reaches the center of the viewport
+    end: '100% 6%', // Trigger when the top of the element reaches the center of the viewport
     onEnter: () => {
       switchBrandElement.forEach((element) => {
         element.classList.add('u-brand-whitemode');

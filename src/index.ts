@@ -123,7 +123,6 @@ barba.init({
         */
         initColorScrollHome();
         initSwitchBrandAnimation();
-
         homeCardsScroll();
         clockAnimation();
         accordionScrollTrigger();
@@ -149,6 +148,7 @@ barba.init({
       beforeEnter() {
         initColorScrollTeam();
         initSwitchBrandAnimation();
+        initFloatingLogosAnimation();
 
         Promise.all([
           loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-accordion@1/accordion.js'),

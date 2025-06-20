@@ -50,13 +50,13 @@ export function initFloatingLogosAnimation() {
 
   // Select all logo asset elements
   const logoAssets = document.querySelectorAll('.solutions_tools_logo-asset');
-  const assetSection = document.querySelector('.section_solutions_tools');
+  const assetSection = document.querySelector('.section_solutions_tools, .section_team_baseline');
 
   if (logoAssets.length > 0 && assetSection) {
     // Create scroll animations with different speeds for each asset
     logoAssets.forEach((asset, index) => {
       const speed = 1 + index * 0.2; // Different speed for each asset
-      const rotationAmount = 45 + index * 45; // Different rotation for each asset
+      const rotationAmount = (45 + index * 45) / 1.5; // Different rotation for each asset, reduced by half
 
       gsap.set(asset, {
         y: '20rem',
