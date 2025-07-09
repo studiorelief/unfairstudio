@@ -1,7 +1,8 @@
-/* @import './utils/animations/css/darkmode.css'; */
+@import './utils/animations/css/darkmode.css';
 @import './utils/animations/css/hero-cells.css';
 @import './utils/components/css/h-accordions.css';
 @import './utils/components/css/button.css';
 @import './utils/components/css/auto-tabs.css';
 @import './utils/animations/css/swiper-tools.css';
 @import './utils/animations/css/hero-text-switch.css';
+@import './utils/animations/css/popup-contact.css';

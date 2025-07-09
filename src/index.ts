@@ -28,6 +28,7 @@ import { teamAnimation } from '$utils/animations/teamAnimation';
 import { autoTabs } from '$utils/components/autoTabs';
 import { /* initAccordion, */ accordionScrollTrigger } from '$utils/components/hAccordion';
 import { initNavbarScrollAnimation } from '$utils/components/navbar';
+import { popupContact } from '$utils/components/popupContact';
 import { loadScript } from '$utils/tools/loadScript';
 import { initMarker } from '$utils/tools/marker';
 // import { playLottie } from '$utils/components/playLottie';
@@ -42,6 +43,7 @@ const initGlobalAnimations = () => {
   homeHeroSun();
   ctaRoundLoop();
   heroTextSwitch();
+  popupContact();
 
   /* footer */
   marqueeAnimation();

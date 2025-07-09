@@ -1,7 +1,6 @@
 [switch_brand_color] {
-  transition:
-    font-color 0.6s ease-in-out,
-    background-color 0.6s ease-in-out;
+  transition: font-color 0.6s ease-in-out;
+  /* background-color 0.6s ease-in-out; */
 }
 
 /* .u-brand-whitemode .navbar_link-wrapper {
