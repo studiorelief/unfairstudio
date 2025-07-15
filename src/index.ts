@@ -11,7 +11,7 @@ import { clockAnimation } from '$utils/animations/clockAnimation';
 import { ctaRoundLoop } from '$utils/animations/ctaRoundLoop';
 import { heroTextSwitch } from '$utils/animations/heroTextSwitch';
 import { homeCardsScroll } from '$utils/animations/homeCardsScroll';
-import { homeHeroSun } from '$utils/animations/homeHeroSun';
+// import { homeHeroSun } from '$utils/animations/homeHeroSun';
 import { marqueeAnimation } from '$utils/animations/marquee';
 import { gsapTransition } from '$utils/animations/pageTransition';
 import { parallaxCta } from '$utils/animations/parallaxCta';
@@ -40,7 +40,7 @@ import { initMarker } from '$utils/tools/marker';
 /* navbar */
 const initGlobalAnimations = () => {
   initNavbarScrollAnimation();
-  homeHeroSun();
+  // homeHeroSun();
   ctaRoundLoop();
   heroTextSwitch();
   popupContact();
@@ -93,10 +93,10 @@ barba.init({
         gsap.fromTo(
           '.hero_background-cell',
           {
-            backgroundColor: 'var(--_brand---background--primary)',
+            // backgroundColor: 'var(--_brand---background--primary)',
           },
           {
-            backgroundColor: 'var(--_brand---background--secondary)',
+            // backgroundColor: 'var(--_brand---background--secondary)',
             duration: 3,
             delay: 1,
             ease: 'power2.out',
@@ -205,16 +205,16 @@ barba.hooks.beforeEnter(() => {
   // scroll to top
   window.scrollTo(0, 0);
 
-  // set darkmode
-  document.querySelectorAll('[switch_brand_color]').forEach((element) => {
-    element.classList.remove('u-brand-whitemode');
-  });
+  // set whitemode
+  // document.querySelectorAll('[switch_brand_color]').forEach((element) => {
+  //   element.classList.add('u-brand-whitemode');
+  // });
 
-  // Remove switch_brand_trigger attribute from trigger-mode elements
-  document.querySelectorAll('.trigger-mode, .navbar_component').forEach((element) => {
-    element.setAttribute('switch_brand_trigger', '');
-    element.setAttribute('switch_color_trigger', '');
-  });
+  // // Remove switch_brand_trigger attribute from trigger-mode elements
+  // document.querySelectorAll('.trigger-mode, .navbar_component').forEach((element) => {
+  //   element.setAttribute('switch_brand_trigger', '');
+  //   element.setAttribute('switch_color_trigger', '');
+  // });
 
   // Reset videos
   const video = document.querySelectorAll('video');
