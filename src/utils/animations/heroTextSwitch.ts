@@ -7,7 +7,7 @@ export function heroTextSwitch() {
     return;
   }
 
-  const texts = ['competitive', 'unfair'];
+  const texts = ['agents', 'copilots', 'chatbots', 'campaigns', 'MVPs'];
   let currentIndex = 0;
 
   // Function to measure text width
@@ -38,7 +38,7 @@ export function heroTextSwitch() {
   textElement.textContent = texts[currentIndex];
   const maxWidth = Math.max(...texts.map((text) => measureTextWidth(text)));
   textElement.style.width = `${maxWidth}px`;
-  textElement.style.textAlign = 'right';
+  textElement.style.textAlign = 'left';
 
   const switchText = () => {
     // Get next text
@@ -61,8 +61,8 @@ export function heroTextSwitch() {
           textElement,
           {
             opacity: 0,
-            scale: 1.2,
-            x: -30,
+            scale: 1,
+            x: 100,
           },
           {
             opacity: 1,

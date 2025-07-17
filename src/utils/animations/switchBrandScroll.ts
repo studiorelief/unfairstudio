@@ -7,7 +7,9 @@ function createSectionAnimation(
   section: Element,
   headingTags: NodeListOf<Element>,
   headingDots: NodeListOf<Element>,
-  darkmodeDivider: NodeListOf<Element>
+  darkmodeDivider: NodeListOf<Element>,
+  startValue: string = '-16 50%',
+  endValue: string = '50% 50%'
 ) {
   gsap.fromTo(
     [section, darkmodeDivider as unknown as HTMLElement],
@@ -18,8 +20,8 @@ function createSectionAnimation(
     {
       scrollTrigger: {
         trigger: section,
-        start: '-16 50%',
-        end: '50% 50%',
+        start: startValue,
+        end: endValue,
         scrub: true,
         markers: false,
       },
@@ -37,8 +39,8 @@ function createSectionAnimation(
     {
       scrollTrigger: {
         trigger: section,
-        start: '0% 50%',
-        end: '50% 50%',
+        start: startValue,
+        end: endValue,
         scrub: true,
       },
       color: '#1500ff',
@@ -54,8 +56,8 @@ function createSectionAnimation(
     {
       scrollTrigger: {
         trigger: section,
-        start: '0% 50%',
-        end: '50% 50%',
+        start: startValue,
+        end: endValue,
         scrub: true,
       },
       color: '#1500ff',
@@ -65,13 +67,20 @@ function createSectionAnimation(
 }
 
 export function initColorScrollHome() {
-  const homeSection = document.querySelector('.section_home_baseline');
+  const homeSection = document.querySelector('.section_home_color-switch');
   const headingTags = document.querySelectorAll('.heading-tag');
   const headingDots = document.querySelectorAll('.heading-dot');
   const darkmodeDivider = document.querySelectorAll('.darkmode-divider.is-scroll');
 
   if (homeSection) {
-    createSectionAnimation(homeSection, headingTags, headingDots, darkmodeDivider);
+    createSectionAnimation(
+      homeSection,
+      headingTags,
+      headingDots,
+      darkmodeDivider,
+      '50% 50%',
+      '100% 100%'
+    );
   }
 }
 

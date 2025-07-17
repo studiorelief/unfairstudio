@@ -39,7 +39,7 @@ export function accordionScrollTrigger(): void {
 
       // Bottom element active state
       if (bottomElement) {
-        if (widthValue >= BOTTOM_ELEMENT_ACTIVE_WIDTH) {
+        if (widthValue >= BOTTOM_ELEMENT_ACTIVE_WIDTH - 35) {
           bottomElement.classList.add('active');
         } else {
           bottomElement.classList.remove('active');
@@ -47,10 +47,10 @@ export function accordionScrollTrigger(): void {
       }
 
       if (bottomElement) {
-        if (widthValue >= 70) {
+        if (widthValue <= 70) {
           (bottomElement as HTMLElement).style.opacity = '1';
         } else {
-          (bottomElement as HTMLElement).style.opacity = '0';
+          (bottomElement as HTMLElement).style.opacity = '1';
         }
       }
 

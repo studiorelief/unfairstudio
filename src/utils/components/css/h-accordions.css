@@ -3,7 +3,7 @@
 }
 
 .home_h-accordion_mask {
-  opacity: 0;
+  opacity: 1;
   transition:
     transform 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
