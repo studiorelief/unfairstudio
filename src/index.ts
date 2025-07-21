@@ -31,6 +31,7 @@ import { autoTabs } from '$utils/components/autoTabs';
 import { initNavbarScrollAnimation } from '$utils/components/navbar';
 import { popupContact } from '$utils/components/popupContact';
 import { loadScript } from '$utils/tools/loadScript';
+import { initLocalization } from '$utils/tools/localization';
 import { initMarker } from '$utils/tools/marker';
 // import { playLottie } from '$utils/components/playLottie';
 
@@ -53,6 +54,7 @@ const initGlobalAnimations = () => {
   /* tools */
   initMarker();
   swiperCrossfade();
+  initLocalization();
 };
 
 initGlobalAnimations();
