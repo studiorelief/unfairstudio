@@ -23,7 +23,7 @@
 
 [data-wf--cc---global-button--mode-button---variables='is-primary']:hover .button-noise-asset,
 [data-wf--cc---global-button--mode-button---variables='is-secondary']:hover .button-noise-asset {
-  opacity: 0.15;
+  opacity: 0.3;
 }
 
 /* button primary (navbar) */

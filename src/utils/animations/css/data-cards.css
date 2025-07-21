@@ -1,0 +1,7 @@
+.home_grid-data_cards_asset-layer-cover {
+  transition: opacity 0.3s ease-out;
+}
+
+.home_grid-data_cards:hover .home_grid-data_cards_asset-layer-cover {
+  opacity: 0.2;
+}

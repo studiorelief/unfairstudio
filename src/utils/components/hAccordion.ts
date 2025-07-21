@@ -33,8 +33,9 @@ export function accordionScrollTrigger(): void {
   const setBottomElementState = (component: Element, targetWidth: string) => {
     const bottomElement = component.querySelector('.home_h-accordion_horizontal-bottom');
     const linkElement = component.querySelector('.home_h-accordion_link');
+    const maskElement = component.querySelector('.home_h-accordion_mask');
 
-    if (bottomElement || linkElement) {
+    if (bottomElement || linkElement || maskElement) {
       const widthValue = parseFloat(targetWidth);
 
       // Bottom element active state
@@ -62,6 +63,28 @@ export function accordionScrollTrigger(): void {
           gsap.to(linkElement, { opacity: 0.5, duration: 0.1 });
         }
       }
+
+      // Mask element smooth fade in/out animation
+      if (maskElement) {
+        if (widthValue >= BOTTOM_ELEMENT_ACTIVE_WIDTH - 35) {
+          // Smooth fade in with translate animation when accordion becomes active
+          gsap.to(maskElement, {
+            opacity: 1,
+            y: 0,
+            duration: 0.4,
+            ease: 'power2.out',
+            delay: 0.1,
+          });
+        } else {
+          // Smooth fade out with translate animation when accordion becomes inactive
+          gsap.to(maskElement, {
+            opacity: 0,
+            y: '2rem',
+            duration: 0.3,
+            ease: 'power2.in',
+          });
+        }
+      }
     }
   };
 
@@ -78,6 +101,18 @@ export function accordionScrollTrigger(): void {
       const initialWidth = index === 0 ? '100%' : '0%';
       gsap.set(component, { width: initialWidth });
       component.classList.toggle('active', index === 0);
+
+      // Set initial mask state
+      const maskElement = component.querySelector('.home_h-accordion_mask');
+      if (maskElement) {
+        if (index === 0) {
+          // First accordion starts visible
+          gsap.set(maskElement, { opacity: 1, y: 0 });
+        } else {
+          // Other accordions start hidden
+          gsap.set(maskElement, { opacity: 0, y: '2rem' });
+        }
+      }
 
       // Set bottom element active state based on initial width
       setBottomElementState(component, initialWidth);
@@ -216,14 +251,32 @@ export function accordionScrollTrigger(): void {
           accordions['is-1'].classList.add('active');
           gsap.set(accordions['is-1'], { width: '100%' });
           setBottomElementState(accordions['is-1'], '100');
+
+          // Set mask to visible for first accordion
+          const maskElement = accordions['is-1'].querySelector('.home_h-accordion_mask');
+          if (maskElement) {
+            gsap.set(maskElement, { opacity: 1, y: 0 });
+          }
         }
         if (accordions['is-2']) {
           gsap.set(accordions['is-2'], { width: '0%' });
           setBottomElementState(accordions['is-2'], '0');
+
+          // Set mask to hidden for second accordion
+          const maskElement = accordions['is-2'].querySelector('.home_h-accordion_mask');
+          if (maskElement) {
+            gsap.set(maskElement, { opacity: 0, y: '2rem' });
+          }
         }
         if (accordions['is-3']) {
           gsap.set(accordions['is-3'], { width: '0%' });
           setBottomElementState(accordions['is-3'], '0');
+
+          // Set mask to hidden for third accordion
+          const maskElement = accordions['is-3'].querySelector('.home_h-accordion_mask');
+          if (maskElement) {
+            gsap.set(maskElement, { opacity: 0, y: '2rem' });
+          }
         }
       },
       onLeaveBack: () => {
@@ -232,14 +285,32 @@ export function accordionScrollTrigger(): void {
           accordions['is-1'].classList.add('active');
           gsap.set(accordions['is-1'], { width: '100%' });
           setBottomElementState(accordions['is-1'], '100');
+
+          // Set mask to visible for first accordion
+          const maskElement = accordions['is-1'].querySelector('.home_h-accordion_mask');
+          if (maskElement) {
+            gsap.set(maskElement, { opacity: 1, y: 0 });
+          }
         }
         if (accordions['is-2']) {
           gsap.set(accordions['is-2'], { width: '0%' });
           setBottomElementState(accordions['is-2'], '0');
+
+          // Set mask to hidden for second accordion
+          const maskElement = accordions['is-2'].querySelector('.home_h-accordion_mask');
+          if (maskElement) {
+            gsap.set(maskElement, { opacity: 0, y: '2rem' });
+          }
         }
         if (accordions['is-3']) {
           gsap.set(accordions['is-3'], { width: '0%' });
           setBottomElementState(accordions['is-3'], '0');
+
+          // Set mask to hidden for third accordion
+          const maskElement = accordions['is-3'].querySelector('.home_h-accordion_mask');
+          if (maskElement) {
+            gsap.set(maskElement, { opacity: 0, y: '2rem' });
+          }
         }
       },
     },

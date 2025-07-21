@@ -21,6 +21,7 @@ export function initFloatingLogosAnimation() {
     const yAmount = 20 + Math.random() * 20;
     // const xAmount = 15 + Math.random() * 12;
     const rotationAmount = 6 + Math.random() * 8;
+    // const rotationAmount = 12.5;
     const duration = 3 + index * 0.5 + Math.random() * 1;
     const delay = Math.random() * 1.2;
 
@@ -72,7 +73,7 @@ export function initFloatingLogosAnimation() {
           markers: false,
         },
         y: '-20rem',
-        rotateZ: rotationAmount,
+        rotateZ: rotationAmount / 4,
         ease: 'none',
         duration: speed,
       });

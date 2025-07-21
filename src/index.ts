@@ -9,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 import { clockAnimation } from '$utils/animations/clockAnimation';
 import { ctaRoundLoop } from '$utils/animations/ctaRoundLoop';
+import { dataCardsStagger } from '$utils/animations/dataCardsStagger';
 import { heroTextSwitch } from '$utils/animations/heroTextSwitch';
 import { homeCardsScroll } from '$utils/animations/homeCardsScroll';
 // import { homeHeroSun } from '$utils/animations/homeHeroSun';
@@ -26,7 +27,7 @@ import {
 } from '$utils/animations/switchBrandScroll';
 import { teamAnimation } from '$utils/animations/teamAnimation';
 import { autoTabs } from '$utils/components/autoTabs';
-import { /* initAccordion, */ accordionScrollTrigger } from '$utils/components/hAccordion';
+// import { /* initAccordion, */ accordionScrollTrigger } from '$utils/components/hAccordion';
 import { initNavbarScrollAnimation } from '$utils/components/navbar';
 import { popupContact } from '$utils/components/popupContact';
 import { loadScript } from '$utils/tools/loadScript';
@@ -128,7 +129,8 @@ barba.init({
           initSwitchBrandAnimation();
           homeCardsScroll();
           clockAnimation();
-          accordionScrollTrigger();
+          dataCardsStagger();
+          // accordionScrollTrigger();
           autoTabs();
           // initAccordion();
         }
@@ -205,7 +207,7 @@ barba.hooks.beforeEnter(() => {
   // scroll to top
   window.scrollTo(0, 0);
 
-  // set whitemode
+  // set whitemode -> Remove
   // document.querySelectorAll('[switch_brand_color]').forEach((element) => {
   //   element.classList.add('u-brand-whitemode');
   // });
