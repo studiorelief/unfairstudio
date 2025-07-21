@@ -64,6 +64,27 @@ function createSectionAnimation(
       ease: 'none',
     }
   );
+
+  const homeBaselineGradient = document.querySelector('.home_baseline_gradient');
+
+  if (homeBaselineGradient) {
+    gsap.fromTo(
+      homeBaselineGradient,
+      {
+        color: 'white',
+      },
+      {
+        scrollTrigger: {
+          trigger: section,
+          start: startValue,
+          end: endValue,
+          scrub: true,
+        },
+        color: 'black',
+        ease: 'none',
+      }
+    );
+  }
 }
 
 export function initColorScrollHome() {
