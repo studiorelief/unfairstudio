@@ -132,19 +132,6 @@ barba.init({
         dataCardsStagger();
         // accordionScrollTrigger();
         autoTabs();
-        /* 
-          ! @fearBackgroundAnimation create bug on first homeCardsScroll scrolltrigger animation
-          ! à checker - pass mobile
-          */
-        initColorScrollHome();
-        initSwitchBrandAnimation();
-        homeCardsScroll();
-        clockAnimation();
-        dataCardsStagger();
-        // accordionScrollTrigger();
-        autoTabs();
-        // initAccordion();
-        // }
       },
     },
     {
