@@ -38,7 +38,11 @@ export function heroTextSwitch() {
   textElement.textContent = texts[currentIndex];
   const maxWidth = Math.max(...texts.map((text) => measureTextWidth(text)));
   textElement.style.width = `${maxWidth}px`;
-  textElement.style.textAlign = 'left';
+  if (window.innerWidth <= 768) {
+    textElement.style.textAlign = 'center';
+  } else {
+    textElement.style.textAlign = 'left';
+  }
 
   const switchText = () => {
     // Get next text
