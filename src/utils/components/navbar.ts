@@ -50,11 +50,11 @@ export function initNavbarScrollAnimation() {
     menuButton.classList.add('is-open');
     menuButton.classList.remove('is-close');
 
-    gsap.to('.navbar_component', {
-      mixBlendMode: 'difference',
-      delay: 0.3,
-      duration: 0.3,
-    });
+    // gsap.to('.navbar_component', {
+    //   mixBlendMode: 'difference',
+    //   delay: 0.3,
+    //   duration: 0.3,
+    // });
 
     gsap.to(menu, {
       y: '2rem',
