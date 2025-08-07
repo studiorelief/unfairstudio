@@ -7,17 +7,19 @@ export function clockAnimation() {
   gsap.set('.home_clock_animation-image', {
     y: '5rem',
   });
-  gsap.to('.home_clock_animation-image', {
-    scrollTrigger: {
-      markers: false,
-      trigger: '.section_home_clock',
-      start: '0% 100%',
-      end: '100% 0%',
-      scrub: true,
-    },
-    y: '-5rem',
-    ease: 'none',
-  });
+  if (window.innerWidth > 991) {
+    gsap.to('.home_clock_animation-image', {
+      scrollTrigger: {
+        markers: false,
+        trigger: '.section_home_clock',
+        start: '0% 100%',
+        end: '100% 0%',
+        scrub: true,
+      },
+      y: '-5rem',
+      ease: 'none',
+    });
+  }
 
   gsap.to('.home_clock_animation-short-rotation', {
     scrollTrigger: {

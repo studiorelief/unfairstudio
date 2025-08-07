@@ -7,25 +7,45 @@ export function initNavbarScrollAnimation() {
   const navbar = document.querySelector('.navbar_component');
   const navbarLogo = document.querySelector('.navbar_logo-link');
   const navbarMenu = document.querySelector('.navbar_menu');
+  const navbarButtonWrapper = document.querySelector('.navbar_button-wrapper');
 
   if (!navbar || !navbarLogo || !navbarMenu) return;
 
   let lastScrollTop = 0;
   const handleScroll = () => {
     const currentScroll = window.scrollY;
+    const isMobile = window.innerWidth < 990;
 
     if (currentScroll === 0) {
       gsap.to([navbarMenu], {
         y: '0rem',
       });
+      // Animation pour mobile uniquement
+      if (isMobile && navbarButtonWrapper) {
+        gsap.to([navbarButtonWrapper], {
+          y: '0rem',
+        });
+      }
     } else if (currentScroll < lastScrollTop) {
       gsap.to([navbarMenu], {
         y: '0rem',
       });
+      // Animation pour mobile uniquement
+      if (isMobile && navbarButtonWrapper) {
+        gsap.to([navbarButtonWrapper], {
+          y: '0rem',
+        });
+      }
     } else {
       gsap.to([navbarMenu], {
         y: '-10rem',
       });
+      // Animation pour mobile uniquement
+      if (isMobile && navbarButtonWrapper) {
+        gsap.to([navbarButtonWrapper], {
+          y: '-10rem',
+        });
+      }
     }
 
     lastScrollTop = currentScroll;
