@@ -4,10 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 export function clockAnimation() {
-  gsap.set('.home_clock_animation-image', {
-    y: '5rem',
-  });
   if (window.innerWidth > 991) {
+    gsap.set('.home_clock_animation-image', {
+      y: '5rem',
+    });
+
     gsap.to('.home_clock_animation-image', {
       scrollTrigger: {
         markers: false,
