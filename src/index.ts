@@ -30,6 +30,11 @@ import { autoTabs } from '$utils/components/autoTabs';
 // import { /* initAccordion, */ accordionScrollTrigger } from '$utils/components/hAccordion';
 import { initNavbarScrollAnimation } from '$utils/components/navbar';
 import { popupContact } from '$utils/components/popupContact';
+import {
+  destroyFsAttributes,
+  initFsAttributes,
+  restartFsAttributes,
+} from '$utils/tools/fsAttributes';
 import { loadScript } from '$utils/tools/loadScript';
 import { initLocalization } from '$utils/tools/localization';
 import { initMarker } from '$utils/tools/marker';
@@ -58,8 +63,11 @@ const initGlobalAnimations = () => {
 };
 
 initGlobalAnimations();
+setTimeout(() => {
+  initFsAttributes();
+}, 350);
 
-/* 
+/*
 ! Barba init
 */
 
@@ -156,8 +164,22 @@ barba.init({
 
         Promise.all([
           loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-accordion@1/accordion.js'),
+          loadScript(
+            'https://cdn.jsdelivr.net/npm/@finsweet/attributes-inputactive@1/inputactive.js'
+          ),
         ]);
         teamAnimation();
+      },
+    },
+    {
+      namespace: 'insights',
+      beforeEnter() {
+        Promise.all([
+          loadScript('https://cdn.jsdelivr.net/npm/@finsweet/attributes-accordion@1/accordion.js'),
+          loadScript(
+            'https://cdn.jsdelivr.net/npm/@finsweet/attributes-inputactive@1/inputactive.js'
+          ),
+        ]);
       },
     },
   ],
@@ -184,6 +206,7 @@ barba.hooks.beforeLeave((data: { current: { container: HTMLElement } }) => {
 
   // Kill all ScrollTriggers
   ScrollTrigger.getAll().forEach((trigger) => trigger.kill(false));
+  destroyFsAttributes();
   // ScrollTrigger.clearMatchMedia();
 
   // Remove switch_brand_trigger attribute from trigger-mode elements
@@ -201,6 +224,7 @@ barba.hooks.beforeLeave((data: { current: { container: HTMLElement } }) => {
 
 barba.hooks.beforeEnter(() => {
   restartWebflow();
+  restartFsAttributes();
 
   // scroll to top
   window.scrollTo(0, 0);
